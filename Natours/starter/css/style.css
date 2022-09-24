@@ -10,27 +10,56 @@ Dark green: #28b485
 */
 
 
-*{
+*,*::after,
+*::before{
     margin: 0;
     padding: 0;
     /* main heading and h1 have automatically margin+pading */
-    box-sizing: border-box;
-    
+    box-sizing: inherit;
+    /* we could use the inherit keyword to force inheritance. */
+
+    /* the box-sizing property by itself is not inherited,  but by setting the box-sizing property
+
+        on each and every element on the entire page to inherit, */
 }
+html{
+    /* the root font size is set in the HTML selector, okay? */
+
+    font-size:  62.5%; 
+    /* why? to 10px? cuz to make rem looks more easier.
+    rem is root font size so myabe 10px is gonna be easy to understand*/
+    
+    
+    
+    /* Instead of writing all the media queries
+
+    to make all the font sizes smaller
+    
+    and to make all of these distances here smaller, */
+
+    /* or we can put 62.5% cuz 10/16,,, 16 is default  
+    10/16 is 62.5%*/
+
+
+
+}
+
+
 
 body{
     /* we are using inheritance here */
     font-family: 'Lato', sans-serif;
     /* Everything related to font, we always specify it here in the body selector */
     font-weight: 400;
-    font-size: 16px;
+    /* font-size: 16px; */
     line-height: 1.7;
     /* line-height means it is 1.7 times bigger than the predefined line height*/
     /* 글자 세로 띄어쓰기 임... */
     color: #777;
-    padding: 30px;
+    padding: 3rem;
     /* this is not inheritance */
     /* all just is put padding at background... */
+    box-sizing: border-box;
 
 }
 
@@ -71,19 +100,21 @@ body{
     position: relative;
 }   
 
-.logo-box{
+.header__logo-box{
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
     /* it change direction based on the parent which is position relative */
 }
 
-.logo{
-    height: 35px;
+.header__logo{
+    height: 3rem;
 
 
 }
-.text-box{
+
+
+.header__text-box{
 
 
     position: absolute;
@@ -102,16 +133,16 @@ body{
     
     backface-visibility: hidden;
     /* determines if the back part of the element when we transform it */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 
 }
 
 
-.heading-primary-main{
+.heading-primary--main{
     display: block;
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     /* making space between letters */
 
     animation-name:moveInLeft ;
@@ -137,11 +168,11 @@ body{
 
 }
 
-.heading-primary-sub{
+.heading-primary--sub{
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     /* animation-name: moveInRight;
     animation-duration: 1.5s; */
     animation: moveInRight 1s ease-out;
@@ -151,7 +182,7 @@ body{
 @keyframes moveInLeft{
     0%{
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
         /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
     }
 /* 
@@ -163,7 +194,7 @@ body{
 
 
     80%{
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
 
     100%{
@@ -176,13 +207,13 @@ body{
 @keyframes moveInRight{
     0%{
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
         /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
     }
 
 
     80%{
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
 
     100%{
@@ -195,7 +226,7 @@ body{
 @keyframes moveInBottom{
     0%{
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(3rem);
         /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
     }
 
@@ -218,19 +249,20 @@ body{
 /* 클릭 후 생기는 상태 변화 */
     text-transform: uppercase;
     text-decoration: none;
-    padding:15px 40px;
+    padding:1.5rem 4rem;
   /*아래,위: 15px  오,왼: 40px  */
 
   display: inline-block;
   /* if we want to put padding or width to elements, need to use this */
 
 
-  border-radius: 100px;
+  border-radius: 10rem;
   transition: all .2s;
   /* transition: which property we want to animate?? all == all */
   /* can put transiton state on initial state */
 
   position: relative;
+  font-size: 1.6rem;
   
 }
 
@@ -238,17 +270,17 @@ body{
     transform: translateY(-3px);
     /* to go up == negative value */
 
-    box-shadow: 0 10px 20px rgba(0,0,0,.2);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
     /* first: x dirextion , second: shadow 10px down , third: blurr  */
 }
 
 .btn:active{
     /* active is when we click an element */
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 
 }
-.btn-white{
+.btn--white{
     background-color: #fff;
     color: #777;
     /* bgc 치면 나옴 */
@@ -261,7 +293,7 @@ body{
     height: 100%;
     /* that is 100% of btn */
     width: 100%;
-    border-radius: 100px;
+    border-radius: 10rem;
     position: absolute;
     top:0;
     left: 0;
@@ -271,7 +303,7 @@ body{
 
 }
 
-.btn-white::after{
+.btn--white::after{
     background-color: #fff;
 }
 
@@ -286,7 +318,7 @@ body{
     opacity: 0;
 }
 
-.btn-animated{
+.btn--animated{
     animation: moveInBottom 0.5s ease-out 0.5s;
     /* name, duration, timing-function, delay */
 

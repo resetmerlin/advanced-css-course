@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+
+*,*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    /* main heading and h1 have automatically margin+pading */
+    box-sizing: inherit;
+    /* we could use the inherit keyword to force inheritance. */
+
+    /* the box-sizing property by itself is not inherited,  but by setting the box-sizing property
+
+        on each and every element on the entire page to inherit, */
+}
+html{
+    /* the root font size is set in the HTML selector, okay? */
+
+    font-size:  62.5%; 
+    /* why? to 10px? cuz to make rem looks more easier.
+    rem is root font size so myabe 10px is gonna be easy to understand*/
+    
+    
+    
+    /* Instead of writing all the media queries
+
+    to make all the font sizes smaller
+    
+    and to make all of these distances here smaller, */
+
+    /* or we can put 62.5% cuz 10/16,,, 16 is default  
+    10/16 is 62.5%*/
+
+
+
+}
+
+
+
+body{
+    /* we are using inheritance here */
+    font-family: 'Lato', sans-serif;
+    /* Everything related to font, we always specify it here in the body selector */
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    /* line-height means it is 1.7 times bigger than the predefined line height*/
+    /* 글자 세로 띄어쓰기 임... */
+    color: #777;
+    padding: 3rem;
+    /* this is not inheritance */
+    /* all just is put padding at background... */
+    box-sizing: border-box;
+
+}
+
+.header{
+    height: 95vh;
+    /* every point the height of this box, of this element, should be 95% of the view port height */
+    background-image: linear-gradient(
+        to right bottom, 
+        rgba(126, 213, 111, 0.801
+        ),rgba(40, 180, 133, 0.801)) 
+        ,url("..//img/hero.jpg");
+    /* linear-gradient is A->B changing color */
+    /* to right => 컬러가 왼쪽부터 오른쪽 방향으로 바뀐다는 이야기 입니당 */
+    /* to right bottom은 왼쪽부터 오른쪽 아래 까지 컬러가 전개됨 */
+    /* backimg == background-image */
+    /* url(../ == go out of current location */
+
+    background-size: cover;
+    /* cover does is that whatever the width of the viewport, or element, it'll always try to fit*/
+    background-position: top;
+
+    /* ensure that whenever u decrease the view size, it always stays at the top of the container*/
+
+    
+    /* to specify gredient, we always use the backgroun image property */
+
+
+
+
+
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%) ;
+    /* this tis modern css */
+    /* 여기서 polygon은 왼쪽 부터 오른쪽, 아래, 그리고 아래 왼 까지 이당 */
+    /* x ---> y
+       x  <---- y*/
+    /* 만약 vh로 바꾸면 윈도우 크기 줄였을때 자동으로 크기 조정됨 */
+    position: relative;
+}   
+
+.header__logo-box{
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+    /* it change direction based on the parent which is position relative */
+}
+
+.header__logo{
+    height: 3rem;
+
+
+}
+
+
+.header__text-box{
+
+
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* translate가 매우 유용한 left top 값을 동시에 작성해서 조절가능 */
+
+    text-align: center;
+}
+
+.heading-primary{
+
+    color: #fff;
+    text-transform: uppercase;
+    
+    backface-visibility: hidden;
+    /* determines if the back part of the element when we transform it */
+    margin-bottom: 6rem;
+
+}
+
+
+.heading-primary--main{
+    display: block;
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    /* making space between letters */
+
+    animation-name:moveInLeft ;
+    animation-duration: 1s;
+
+
+    animation-timing-function: ease-out;
+
+    /* animation-iteration-count: 3; \
+        애니메이션이 3번 반복된다.
+        
+    */
+    
+    
+    
+    
+    
+    /* animation-delay: 1s; 
+
+     1초후 애니메이션이 진행됨
+    */
+
+
+}
+
+.heading-primary--sub{
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    /* animation-name: moveInRight;
+    animation-duration: 1.5s; */
+    animation: moveInRight 1s ease-out;
+
+}
+
+@keyframes moveInLeft{
+    0%{
+        opacity: 0;
+        transform: translateX(-10rem);
+        /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
+    }
+/* 
+    60%{
+        transform: rotate(120deg);
+    } 
+    겁나 돌아감
+    */
+
+
+    80%{
+        transform: translateX(1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}
+
+
+@keyframes moveInRight{
+    0%{
+        opacity: 0;
+        transform: translateX(10rem);
+        /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
+    }
+
+
+    80%{
+        transform: translateX(-1rem);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}  
+
+
+@keyframes moveInBottom{
+    0%{
+        opacity: 0;
+        transform: translateY(3rem);
+        /* direction goes left to right 그니까 처음에 그 html값을 조금 왼쪽으로 옮기고 싶으면 -사용 */
+    }
+
+
+
+
+    100%{
+        opacity: 1;
+        transform: translate(0);
+    }
+}  
+
+
+
+
+.btn:link, .btn:visited{
+/* :link 하는 이유 == pseudo select */
+
+/*  visited is the state when the user has already on the button once before and then sees the button again*/
+/* 클릭 후 생기는 상태 변화 */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding:1.5rem 4rem;
+  /*아래,위: 15px  오,왼: 40px  */
+
+  display: inline-block;
+  /* if we want to put padding or width to elements, need to use this */
+
+
+  border-radius: 10rem;
+  transition: all .2s;
+  /* transition: which property we want to animate?? all == all */
+  /* can put transiton state on initial state */
+
+  position: relative;
+  font-size: 1.6rem;
+  
+}
+
+.btn:hover{
+    transform: translateY(-3px);
+    /* to go up == negative value */
+
+    box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+    /* first: x dirextion , second: shadow 10px down , third: blurr  */
+}
+
+.btn:active{
+    /* active is when we click an element */
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+
+}
+.btn--white{
+    background-color: #fff;
+    color: #777;
+    /* bgc 치면 나옴 */
+}
+
+
+.btn::after{
+    content: "";
+    display: inline-block;
+    height: 100%;
+    /* that is 100% of btn */
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+    /* z index defines the position of the elements if they are one on top of another*/
+    transition: all 0.8s;
+
+}
+
+.btn--white::after{
+    background-color: #fff;
+}
+
+.btn:hover::after{
+    /* after psuedo moment */
+    transform: scaleX(1.3) scaleY(1.6);
+
+
+    /* increase element == 2 is double*/
+    /* if u want to put transition, put at the initial state */
+
+    opacity: 0;
+}
+
+.btn--animated{
+    animation: moveInBottom 0.5s ease-out 0.5s;
+    /* name, duration, timing-function, delay */
+
+
+    animation-fill-mode: backwards;
+    /* automatically apply the styles up to zero percent before the animation starts */
+
+
+    /* @keyframes moveInBottom{
+        0%{
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    
+    
+    
+    
+        100%{
+            opacity: 1;
+            transform: translate(0);
+        }
+    }   */
+    
+
+    /* 지금 적용된 animation moveInBottom을 보면 0%에 style이 입혀있자나... 근데 fill-mode: backwards는
+    이미 스타일 해준다고... 애니메이션 시작 하기도 저전에 */
+    
+   
+}

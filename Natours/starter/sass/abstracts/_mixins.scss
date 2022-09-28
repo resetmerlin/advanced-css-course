@@ -1,0 +1,19 @@
+@mixin clearfix {
+    &::after{
+        content: "";
+        display: table;
+        //standard version of the clearfix
+
+        //this clearfix is the clear property. 
+        //this would clear both floats, so float left and float right so that 
+        //it's gonna work no matter if we use flat left or float right
+
+        clear: both;
+
+
+
+    }
+}
+
+//we always need to specify the content property otherwise a pseudo element
+// will simply not appeat on the page, and we want it empty
